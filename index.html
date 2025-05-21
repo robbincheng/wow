@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WOW 室內設計</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      width: 100%;
+      height: 100%;
+      font-family: "Arial", sans-serif;
+      background-color: #f5f0dc; /* 米黃色背景 */
+      color: #333;
+      scroll-behavior: smooth;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 20px;
+      background: rgba(0, 0, 0, 0.5);
+      animation: slideDown 1s ease-out;
+      position: relative;
+      z-index: 1001;
+    }
+
+    @keyframes slideDown {
+      from { transform: translateY(-100%); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    header img.logo {
+      height: 50px;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      position: relative;
+    }
+
+    nav a, .dropdown {
+      color: #fff;
+      text-decoration: none;
+      position: relative;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: rgba(0, 0, 0, 0.8);
+      top: 100%;
+      left: 0;
+      min-width: 250px;
+      z-index: 1002;
+      flex-direction: column;
+    }
+
+    .dropdown-content a {
+      color: white;
+      padding: 10px;
+      text-decoration: none;
+      display: block;
+      transition: background 0.3s ease;
+    }
+
+    .dropdown-content a:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .dropdown:hover .dropdown-content,
+    .dropdown:focus-within .dropdown-content {
+      display: flex;
+    }
+
+    main {
+      padding: 60px 20px;
+      text-align: center;
+      max-width: 900px;
+      margin: auto;
+      border-radius: 15px;
+      animation: fadeIn 1.5s ease;
+    }
+
+    .styled-img {
+      max-width: 100%;
+      height: auto;
+      border: 8px solid white;
+      border-radius: 10px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      margin-bottom: 30px;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    section#about {
+      background: rgba(0, 0, 0, 0.5);
+      padding: 40px 20px;
+      text-align: center;
+      animation: fadeIn 1.5s ease;
+      margin-top: 60px;
+      color: white;
+    }
+
+    .footer-imgs {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .footer-imgs img {
+      max-width: 300px;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    @media (max-width: 768px) {
+      header, nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .dropdown-content {
+        position: static;
+      }
+
+      main {
+        padding: 30px 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="image/wowlogo.jpg" alt="WOW logo" class="logo">
+    <nav>
+      <a href="#about">關於 WOW 室內設計</a>
+      <div class="dropdown" tabindex="0">
+        <span>精選作品集</span>
+        <div class="dropdown-content">
+          <a href="project1.html">✨靜奢極簡風|不宣言的高級，藏在每一處細節</a>
+          <a href="project2.html">💡空間不是展示設計，而是承載「生活」的容器</a>
+        </div>
+      </div>
+      <a href="#partners">合作廠商</a>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSektSyiOrTxbO2jDjb5oGgTkfmWrSiYVfgnIG5xjZ84_CjcYw/viewform?usp=sharing&ouid=115441801677201475062" target="_blank">你的夢想家居家調查</a>
+    </nav>
+  </header>
+
+  <main>
+    <img src="image/title.jpg" alt="背景圖" class="styled-img">
+    <h1 style="font-size: 2rem; margin-bottom: 20px; animation: fadeIn 2s ease-in;">🌿Beyond expectation， beyond space.</h1>
+    <p style="font-size: 1.2rem; line-height: 2; animation: fadeIn 2.5s ease-in;">
+      🏡 不是打造空間，而是創造讓你驚呼 WOW 的生活體驗<br>
+      好的設計，是當你踏入空間的那一刻，會忍不住發自內心「WOW！」一聲。<br>
+      我致力於打破常規，為你打造充滿驚喜與新意的專屬空間，<br>
+      讓每一次回家，都是一場視覺與心靈的盛宴。
+    </p>
+  </main>
+
+  <section id="about">
+    <h2 style="font-size: 1.8rem; margin-bottom: 20px;">關於我</h2>
+    <p style="font-size: 1.1rem;">電子郵件: <a href="mailto:robbincheng@hotmail.com" style="color: #fff; text-decoration: underline;">robbincheng@hotmail.com</a></p>
+    <p style="font-size: 1.1rem;">社交媒體: <a href="https://linktr.ee/gogobike168" target="_blank" style="color: #fff; text-decoration: underline;">linktr.ee/gogobike168</a></p>
+    <div class="footer-imgs">
+      <img src="image/namecard1.jpg" alt="名片1">
+      <img src="image/namecard2.jpg" alt="名片2">
+    </div>
+  </section>
+</body>
+</html>
