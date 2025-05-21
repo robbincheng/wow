@@ -4,6 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>WOW 室內設計</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -14,8 +17,8 @@
     body, html {
       width: 100%;
       height: 100%;
-      font-family: "Arial", sans-serif;
-      background-color: #f5f0dc; /* 米黃色背景 */
+      font-family: 'Noto Sans TC', sans-serif; /* 內文簡潔易讀的無襯線字體 */
+      background-color: #fdf8e4; /* 溫暖的淺米色背景 */
       color: #333;
       scroll-behavior: smooth;
     }
@@ -25,7 +28,7 @@
       align-items: center;
       justify-content: space-between;
       padding: 10px 20px;
-      background: rgba(0, 0, 0, 0.5);
+      background: rgba(0, 0, 0, 0.6); /* 稍微深一點的半透明黑色 */
       animation: slideDown 1s ease-out;
       position: relative;
       z-index: 1001;
@@ -53,6 +56,11 @@
       position: relative;
       font-size: 16px;
       cursor: pointer;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #ffd700; /* 點綴色，亮金色 */
     }
 
     /* 下拉選單樣式 */
@@ -66,11 +74,11 @@
       position: absolute;
       background-color: rgba(0, 0, 0, 0.8);
       min-width: 200px;
-      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.3); /* 加強陰影 */
       z-index: 1;
-      top: 100%; /* 讓選單顯示在標題下方 */
+      top: 100%;
       left: 0;
-      flex-direction: column; /* 確保內容垂直排列 */
+      flex-direction: column;
     }
 
     .dropdown-content a {
@@ -78,16 +86,19 @@
       padding: 12px 16px;
       text-decoration: none;
       display: block;
-      transition: background 0.3s ease;
+      transition: background 0.3s ease, color 0.3s ease, text-decoration 0.3s ease; /* 增加過渡效果 */
     }
 
     .dropdown-content a:hover {
-      background-color: rgba(255, 255, 255, 0.1);
+      background-color: rgba(255, 255, 255, 0.15); /* 顏色變亮 */
+      color: #ffd700; /* 點綴色，亮金色 */
+      text-decoration: underline; /* 底線滑入 */
+      text-underline-offset: 4px; /* 底線與文字的距離 */
     }
 
     .dropdown:hover .dropdown-content,
     .dropdown:focus-within .dropdown-content {
-      display: flex; /* 顯示下拉選單，使用 flex 佈局 */
+      display: flex;
     }
 
 
@@ -115,12 +126,12 @@
       object-fit: cover;
       border: 8px solid white;
       border-radius: 10px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4); /* 加強陰影 */
       transition: transform 0.3s ease;
     }
-    
+
     .main-images img:hover {
-      transform: scale(2);
+      transform: scale(1.05); /* 更柔和的放大效果 */
     }
 
     @keyframes fadeIn {
@@ -129,12 +140,30 @@
     }
 
     section#about {
-      background: rgba(0, 0, 0, 0.5);
+      background: rgba(0, 0, 0, 0.6); /* 稍微深一點的半透明黑色 */
       padding: 40px 20px;
       text-align: center;
       animation: fadeIn 1.5s ease;
       margin-top: 60px;
       color: white;
+    }
+
+    h1, h2 {
+      font-family: 'Playfair Display', serif; /* 標題藝術感字體 */
+      color: #6B4226; /* 帶有品牌感的點綴色，深咖啡色 */
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+    }
+
+    section#about h2 {
+        color: #fff; /* 關於我區塊的標題保持白色 */
     }
 
     .footer-imgs {
@@ -149,13 +178,24 @@
       max-width: 300px;
       height: auto;
       border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.3); /* 輕微加強陰影 */
       animation: fadeIn 2s ease-in-out;
       transition: transform 0.3s ease;
     }
 
     .footer-imgs img:hover {
-      transform: scale(2);
+      transform: scale(1.05); /* 更柔和的放大效果 */
+    }
+
+    a {
+        color: #ffd700; /* 連結顏色 */
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+
+    a:hover {
+        color: #ffc000; /* 連結 hover 顏色 */
+        text-decoration: underline;
     }
 
     @media (max-width: 768px) {
@@ -174,6 +214,15 @@
       .main-images {
         grid-template-columns: 1fr;
       }
+      h1 {
+        font-size: 1.8rem; /* 小螢幕字體調整 */
+      }
+      h2 {
+        font-size: 1.5rem; /* 小螢幕字體調整 */
+      }
+      main p {
+        font-size: 1rem; /* 小螢幕字體調整 */
+      }
     }
   </style>
 </head>
@@ -183,14 +232,14 @@
     <nav>
       <a href="#about">關於我</a>
       <div class="dropdown" tabindex="0">
-        <span>精選作品集</span>
+        <span>精選作品集 </span>
         <div class="dropdown-content">
           <a href="project1.html">💡空間不是展示設計，而是承載「生活」的容器</a>
-          <a href="project2.html">✨靜奢極簡風|不宣言的高級，藏在每一處細節</a>  
+          <a href="project2.html">✨靜奢極簡風|不宣言的高級，藏在每一處細節</a>
         </div>
       </div>
       <div class="dropdown" tabindex="0">
-        <span>最新訊息</span>
+        <span>最新訊息 </span>
         <div class="dropdown-content">
           <a href="#">促銷訊息</a>
           <a href="#">最新優惠</a>
