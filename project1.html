@@ -47,6 +47,11 @@
             border-radius: 10px;
             border: 2px solid #1e3d58; /* 圖片外框顏色 */
             box-shadow: 0 0 15px rgba(30, 61, 88, 0.8); /* 發光效果 */
+            transition: transform 0.3s ease; /* 添加過渡效果*/
+        }
+
+        .content-section img:hover {
+            transform: scale(1.5); /* 當圖片懸停時，圖片會放大*/
         }
 
         .content-section .text {
@@ -76,11 +81,11 @@
             width: 100%;
             height: auto;
             border-radius: 8px;
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease; /* 當圖片懸停時，圖片會放大*/
         }
 
         .image-gallery img:hover {
-            transform: scale(1.05); /* 當圖片懸停時，圖片會放大 */
+            transform: scale(1.05); /* 當圖片懸停時，圖片會放大*/
         }
 
         footer {
@@ -100,34 +105,30 @@
     <div class="container">
         <h1>✨靜奢極簡風｜不宣言的高級，藏在每一處細節</h1>
 
-        <!-- Section 1 -->
         <div class="content-section">
-            <img src="image/ALBUM2505209.jpg" alt="客廳設計">
+            <img src="image/ALBUM2505209.jpg" alt="玄關設計">
             <div class="text">
                 <h2>玄關設計</h2>
                 <p>✨ 推開家門的第一眼，玄關不再只是過渡，而是一場設計的開場白。鞋櫃、鏡面、光影，俐落線條與柔光交織，在簡約中藏著對生活的講究。</p>
             </div>
         </div>
 
-        <!-- Section 2 -->
         <div class="content-section">
-            <img src="image/ALBUM2505208.jpg" alt="餐廳設計">
+            <img src="image/ALBUM2505208.jpg" alt="開放式廚房">
             <div class="text">
                 <h2>開放式廚房</h2>
                 <p>🍽️ 開放式廚房，極簡線條搭配高機能櫃檯，石英石紋理與無把手櫃檯，讓烹飪成為日常中的美學實踐。</p>
             </div>
         </div>
 
-        <!-- Section 3 -->
         <div class="content-section">
-            <img src="image/ALBUM2505206.jpg" alt="客餐廳地坪">
+            <img src="image/ALBUM2505206.jpg" alt="餐廳地坪">
             <div class="text">
                 <h2>餐廳空間</h2>
                 <p>🌳 餐廳區木質調與石材的交錯，創造出餐廳空間的靜謐質感。</p>
             </div>
         </div>
 
-        <!-- Section 4 -->
         <div class="content-section">
             <img src="image/ALBUM2505205.jpg" alt="客廳設計">
             <div class="text">
@@ -136,28 +137,26 @@
             </div>
         </div>
 
-        <!-- Section 5 -->
         <div class="content-section">
-            <img src="image/ALBUM2505204.jpg" alt="黑白灰設計">
+            <img src="image/ALBUM2505204.jpg" alt="創意空間">
             <div class="text">
                 <h2>創意空間</h2>
                 <p>🛏️ 主臥空間以淺灰為主色，結合開放式收納與大面採光，讓空間沉靜，視覺更顯延伸。次臥書桌與床鋪、衣櫃巧妙並置，在方寸之間展現空間的最大彈性。</p>
             </div>
         </div>
 
-        <!-- Image Gallery -->
         <h2 style="text-align: center; margin-top: 50px;">空間畫廊</h2>
         <div class="image-gallery">
             <img src="image/ALBUM2505201.jpg" alt="Gallery Image 1">
             <img src="image/ALBUM2505202.jpg" alt="Gallery Image 2">
-            <img src="image/ALBUM2505203.jpg" alt="Gallery Image 2">
-            <img src="image/ALBUM2505207.jpg" alt="Gallery Image 7">
-   	    <img src="image/ALBUM2505204.jpg" alt="Gallery Image 7">
-            <img src="image/ALBUM2505205.jpg" alt="Gallery Image 7">
-   	    <img src="image/ALBUM2505206.jpg" alt="Gallery Image 7">
-  	    <img src="image/ALBUM2505208.jpg" alt="Gallery Image 7">
-            <img src="image/513282.jpg" alt="我們的名片">
-	    <img src="image/513283.jpg" alt="我們的名片">
+            <img src="image/ALBUM2505203.jpg" alt="Gallery Image 3">
+            <img src="image/ALBUM2505207.jpg" alt="Gallery Image 4">
+            <img src="image/ALBUM2505204.jpg" alt="Gallery Image 5">
+            <img src="image/ALBUM2505205.jpg" alt="Gallery Image 6">
+            <img src="image/ALBUM2505206.jpg" alt="Gallery Image 7">
+            <img src="image/ALBUM2505208.jpg" alt="Gallery Image 8">
+            <img src="image/513282.jpg" alt="我們的名片1">
+            <img src="image/513283.jpg" alt="我們的名片2">
         </div>
     </div>
 

@@ -92,13 +92,27 @@
       animation: fadeIn 1.5s ease;
     }
 
-    .styled-img {
-      max-width: 100%;
-      height: auto;
+    /* 新增樣式來顯示多張圖片 */
+    .main-images {
+      display: grid; /* 使用 Grid 佈局 */
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* 自動調整列數，最小寬度 250px */
+      gap: 20px; /* 圖片間距 */
+      margin: 0 auto 40px auto;
+      max-width: 800px;
+    }
+
+    .main-images img {
+      width: 100%;
+      height: 250px; /* 固定高度，可根據需求調整 */
+      object-fit: cover; /* 圖片裁切以填滿空間 */
       border: 8px solid white;
       border-radius: 10px;
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-      margin-bottom: 30px;
+      transition: transform 0.3s ease; /* 添加過渡效果 */
+    }
+    
+    .main-images img:hover {
+      transform: scale(2); /* 滑鼠懸停時放大 2 倍 */
     }
 
     @keyframes fadeIn {
@@ -129,6 +143,11 @@
       border-radius: 10px;
       box-shadow: 0 4px 8px rgba(0,0,0,0.3);
       animation: fadeIn 2s ease-in-out;
+      transition: transform 0.3s ease; /* 添加過渡效果 */
+    }
+
+    .footer-imgs img:hover {
+      transform: scale(2); /* 滑鼠懸停時放大 2 倍 */
     }
 
     @media (max-width: 768px) {
@@ -144,6 +163,9 @@
       main {
         padding: 30px 15px;
       }
+      .main-images {
+        grid-template-columns: 1fr; /* 在小螢幕上單列顯示 */
+      }
     }
   </style>
 </head>
@@ -156,7 +178,7 @@
         <span>精選作品集</span>
         <div class="dropdown-content">
           <a href="project1.html">✨靜奢極簡風|不宣言的高級，藏在每一處細節</a>
-          <a href="project2.html">💡空間不是展示設計，而是承載「生活」的容器</a>
+          <a href href="project2.html">💡空間不是展示設計，而是承載「生活」的容器</a>
         </div>
       </div>
       <a href="#partners">合作廠商</a>
@@ -165,7 +187,13 @@
   </header>
 
   <main>
-    <img src="image/title.jpg" alt="背景圖" class="styled-img">
+    <div class="main-images">
+      <img src="image/2505206.jpg" alt="作品1">
+      <img src="image/2505204.jpg" alt="作品2">
+      <img src="image/ALBUM2505205.jpg" alt="作品3">
+      <img src="image/ALBUM2505204.jpg" alt="作品4">
+      <img src="image/ALBUM2505207.jpg" alt="作品5">
+    </div>
     <h1 style="font-size: 2rem; margin-bottom: 20px; animation: fadeIn 2s ease-in;">🌿Beyond expectation， beyond space.</h1>
     <p style="font-size: 1.2rem; line-height: 2; animation: fadeIn 2.5s ease-in;">
       🏡 不是打造空間，而是創造讓你驚呼 WOW 的生活體驗<br>
