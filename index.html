@@ -55,33 +55,41 @@
       cursor: pointer;
     }
 
+    /* 下拉選單樣式 */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
     .dropdown-content {
       display: none;
       position: absolute;
       background-color: rgba(0, 0, 0, 0.8);
-      top: 100%;
+      min-width: 200px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+      top: 100%; /* 讓選單顯示在標題下方 */
       left: 0;
-      min-width: 250px;
-      z-index: 1002;
-      flex-direction: column;
+      flex-direction: column; /* 確保內容垂直排列 */
     }
 
     .dropdown-content a {
       color: white;
-      padding: 10px;
+      padding: 12px 16px;
       text-decoration: none;
       display: block;
       transition: background 0.3s ease;
     }
 
     .dropdown-content a:hover {
-      background: rgba(255, 255, 255, 0.1);
+      background-color: rgba(255, 255, 255, 0.1);
     }
 
     .dropdown:hover .dropdown-content,
     .dropdown:focus-within .dropdown-content {
-      display: flex;
+      display: flex; /* 顯示下拉選單，使用 flex 佈局 */
     }
+
 
     main {
       padding: 60px 20px;
@@ -94,25 +102,25 @@
 
     /* 調整主要圖片區塊的佈局 */
     .main-images {
-      display: grid; /* 使用 Grid 佈局 */
-      grid-template-columns: repeat(2, 1fr); /* 兩張圖片並排，每列佔用相等的空間 */
-      gap: 20px; /* 圖片間距 */
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
       margin: 0 auto 40px auto;
-      max-width: 800px; /* 限制整體圖片區塊的最大寬度 */
+      max-width: 800px;
     }
 
     .main-images img {
       width: 100%;
-      height: 250px; /* 固定高度，可根據需求調整 */
-      object-fit: cover; /* 圖片裁切以填滿空間 */
+      height: 250px;
+      object-fit: cover;
       border: 8px solid white;
       border-radius: 10px;
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-      transition: transform 0.3s ease; /* 添加過渡效果 */
+      transition: transform 0.3s ease;
     }
     
     .main-images img:hover {
-      transform: scale(2); /* 滑鼠懸停時放大 2 倍 */
+      transform: scale(2);
     }
 
     @keyframes fadeIn {
@@ -143,11 +151,11 @@
       border-radius: 10px;
       box-shadow: 0 4px 8px rgba(0,0,0,0.3);
       animation: fadeIn 2s ease-in-out;
-      transition: transform 0.3s ease; /* 添加過渡效果 */
+      transition: transform 0.3s ease;
     }
 
     .footer-imgs img:hover {
-      transform: scale(2); /* 滑鼠懸停時放大 2 倍 */
+      transform: scale(2);
     }
 
     @media (max-width: 768px) {
@@ -164,7 +172,7 @@
         padding: 30px 15px;
       }
       .main-images {
-        grid-template-columns: 1fr; /* 在小螢幕上單列顯示 */
+        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -181,6 +189,13 @@
           <a href="project2.html">💡空間不是展示設計，而是承載「生活」的容器</a>
         </div>
       </div>
+      <div class="dropdown" tabindex="0">
+        <span>最新訊息</span>
+        <div class="dropdown-content">
+          <a href="#">促銷訊息</a>
+          <a href="#">最新優惠</a>
+        </div>
+      </div>
       <a href="#partners">合作廠商</a>
       <a href="https://docs.google.com/forms/d/e/1FAIpQLSektSyiOrTxbO2jDjb5oGgTkfmWrSiYVfgnIG5xjZ84_CjcYw/viewform?usp=sharing&ouid=115441801677201475062" target="_blank">你的夢想家居家調查</a>
     </nav>
@@ -193,7 +208,7 @@
       <img src="image/ALBUM2505205.jpg" alt="作品3">
       <img src="image/ALBUM2505204.jpg" alt="作品4">
       <img src="image/ALBUM2505207.jpg" alt="作品5">
-      <img src="image/ALBUM2505209.jpg" alt="作品5">
+      <img src="image/ALBUM2505209.jpg" alt="作品6">
     </div>
     <h1 style="font-size: 2rem; margin-bottom: 20px; animation: fadeIn 2s ease-in;">🌿Beyond expectation， beyond space.</h1>
     <p style="font-size: 1.2rem; line-height: 2; animation: fadeIn 2.5s ease-in;">
