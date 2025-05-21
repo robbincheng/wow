@@ -14,13 +14,17 @@
       box-sizing: border-box;
     }
 
-    body, html {
+    html {
       width: 100%;
       height: 100%;
       font-family: 'Noto Sans TC', sans-serif; /* 內文簡潔易讀的無襯線字體 */
       background-color: #fdf8e4; /* 溫暖的淺米色背景 */
       color: #333;
-      scroll-behavior: smooth;
+      scroll-behavior: smooth; /* 整個頁面平滑滾動 */
+    }
+
+    body {
+      margin: 0; /* 確保 body 沒有額外的 margin */
     }
 
     header {
@@ -105,7 +109,7 @@
     main {
       padding: 60px 20px;
       text-align: center;
-      max-width: 900px;
+      max-width: 1200px; /* 根據圖片增大調整最大寬度 */
       margin: auto;
       border-radius: 15px;
       animation: fadeIn 1.5s ease;
@@ -118,13 +122,13 @@
       white-space: nowrap; /* 防止內容換行 */
       gap: 20px; /* 圖片間距 */
       margin: 0 auto 40px auto;
-      max-width: 800px;
+      max-width: 1100px; /* 調整容器最大寬度以容納更大圖片 */
       padding-bottom: 10px; /* 為了滾動條預留空間 */
     }
 
     .main-images img {
-      width: 300px; /* 固定圖片寬度 */
-      height: 250px;
+      width: 600px; /* 圖片寬度大一倍 */
+      height: 500px; /* 圖片高度大一倍 */
       object-fit: cover;
       border: 8px solid white;
       border-radius: 10px;
@@ -134,7 +138,7 @@
     }
 
     .main-images img:hover {
-      transform: scale(1.05); /* 更柔和的放大效果 */
+      transform: scale(1.03); /* 更柔和的放大效果，避免圖片過大時跳動太劇烈 */
     }
 
     /* 隱藏滾動條（可選，增加美觀） */
@@ -239,8 +243,8 @@
         justify-content: flex-start; /* 圖片從左側開始排列 */
       }
       .main-images img {
-        width: 80%; /* 小螢幕上圖片佔更多寬度 */
-        height: 200px;
+        width: 90%; /* 小螢幕上圖片佔更多寬度，確保能看到大圖片的一部分 */
+        height: 300px; /* 小螢幕上圖片高度適應 */
       }
       h1 {
         font-size: 1.8rem; /* 小螢幕字體調整 */
@@ -251,6 +255,14 @@
       main p {
         font-size: 1rem; /* 小螢幕字體調整 */
       }
+    }
+
+    /* 針對超小螢幕進一步調整，確保圖片不會太大導致無法滾動 */
+    @media (max-width: 480px) {
+        .main-images img {
+            width: 95%; /* 更小螢幕上圖片寬度再加大，讓一張圖片盡可能填滿 */
+            height: 250px;
+        }
     }
   </style>
 </head>
@@ -298,7 +310,7 @@
 
   <section id="about">
     <h2 style="font-size: 1.8rem; margin-bottom: 20px;">關於我</h2>
-    <p style="font-size: 1.1rem;">電子郵件: <a href="mailto:robbincheng@hotmail.com" style="color: #fff; text-decoration: underline;">robbincheng@hotmail.com</a></p>
+    <p style="font-size: 1.1rem;">電子郵件: <a href="mailto:robbincheng.com" style="color: #fff; text-decoration: underline;">robbincheng@hotmail.com</a></p>
     <p style="font-size: 1.1rem;">社交媒體: <a href="https://linktr.ee/gogobike168" target="_blank" style="color: #fff; text-decoration: underline;">linktr.ee/gogobike168</a></p>
     <div class="footer-imgs">
       <img src="image/namecard1.jpg" alt="名片1">
