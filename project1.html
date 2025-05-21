@@ -51,7 +51,7 @@
         }
 
         .content-section img:hover {
-            transform: scale(1.5); /* 當圖片懸停時，圖片會放大*/
+            transform: scale(1.05); /* 當圖片懸停時，圖片會放大*/
         }
 
         .content-section .text {
@@ -98,6 +98,26 @@
 
         footer p {
             font-size: 1.2rem;
+        }
+
+        /* 回到首頁按鈕樣式 */
+        .back-to-home {
+            display: block; /* 讓按鈕佔滿一行 */
+            width: fit-content; /* 寬度適應內容 */
+            margin: 20px auto; /* 居中並上下留白 */
+            padding: 12px 25px;
+            background-color: #ff6347; /* 鮮豔橙紅色 */
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .back-to-home:hover {
+            background-color: #e5533d; /* 滑鼠懸停時顏色變深 */
+            transform: translateY(-2px); /* 輕微上浮效果 */
         }
     </style>
 </head>
@@ -163,5 +183,8 @@
     <footer>
         <p>© ✨靜奢極簡風｜不宣言的高級，藏在每一處細節</p>
     </footer>
+
+    <a href="index.html" class="back-to-home">回到首頁</a>
+
 </body>
 </html>
