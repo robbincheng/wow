@@ -55,7 +55,7 @@
         }
 
         .content-section img:hover {
-            transform: scale(1.2); /* 當圖片懸停時，圖片會放大 1.2 倍 */
+            transform: scale(1.1); /* 當圖片懸停時，圖片會放大 1.2 倍 */
         }
 
         .content-section .text {
@@ -102,6 +102,26 @@
 
         footer p {
             font-size: 1.2rem;
+        }
+
+        /* 回到首頁按鈕樣式 */
+        .back-to-home {
+            display: block; /* 讓按鈕佔滿一行 */
+            width: fit-content; /* 寬度適應內容 */
+            margin: 20px auto; /* 居中並上下留白 */
+            padding: 12px 25px;
+            background-color: #1e3d58; /* 深藍色背景 */
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .back-to-home:hover {
+            background-color: #0d263a; /* 滑鼠懸停時顏色變深 */
+            transform: translateY(-2px); /* 輕微上浮效果 */
         }
     </style>
 </head>
@@ -167,5 +187,8 @@
     <footer>
         <p>© 💡 空間不是展示設計，而是乘載「生活」的容器</p>
     </footer>
+    
+    <a href="index.html" class="back-to-home">回到首頁</a>
+
 </body>
 </html>
