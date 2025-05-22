@@ -10,7 +10,7 @@
             line-height: 1.6;
             margin: 0;
             padding: 0;
-            background-color: #f0f8ff; /* 淺藍色背景 */
+            background-color: #fdf8e4; /* 背景顏色 */
             color: #333;
         }
 
@@ -22,7 +22,7 @@
 
         h1 {
             text-align: center;
-            color: #ff6347; /* 鮮豔橙紅色 */
+            color: #1e3d58; /* h1標題深藍色 */
             font-size: 2.5rem;
             margin-top: 20px;
             text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* 標題陰影效果 */
@@ -92,12 +92,14 @@
             text-align: center;
             margin-top: 40px;
             padding: 20px;
-            background-color: #fdf8e4; /* 背景顏色 */
-            color: white;
+            background-color: #1e3d58; /* 深藍色背景 */
+            /* 由於頁腳背景色為深藍，文字顏色應保持白色以確保可讀性 */
+            color: white; /* 頁腳預設文字顏色，但如果 p 標籤單獨設定，則以 p 標籤為準 */
         }
 
         footer p {
             font-size: 1.2rem;
+            color: white; /* 確保 footer 內部的文字是白色，以在深藍背景上可見 */
         }
 
         /* 回到首頁按鈕樣式 */
@@ -175,8 +177,8 @@
             <img src="image/ALBUM2505205.jpg" alt="Gallery Image 6">
             <img src="image/ALBUM2505206.jpg" alt="Gallery Image 7">
             <img src="image/ALBUM2505208.jpg" alt="Gallery Image 8">
-            <img src="image/513282.jpg" alt="我們的名片1">
-            <img src="image/513283.jpg" alt="我們的名片2">
+            <img src="image/namecard1.jpg" alt="我們的名片1">
+            <img src="image/namecard2.jpg" alt="我們的名片2">
         </div>
     </div>
 
