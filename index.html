@@ -59,18 +59,23 @@
       text-decoration: none;
       position: relative;
       font-size: 16px;
-      cursor: pointer;
+      /* cursor: pointer; */ /* 此行已由下方更具體的規則覆蓋，保持清晰度 */
       transition: color 0.3s ease;
     }
 
     nav a:hover {
       color: #ffd700; /* 點綴色，亮金色 */
+      cursor: pointer; /* 確保 hover 時顯示手型圖案 */
     }
 
     /* 下拉選單樣式 */
     .dropdown {
       position: relative;
       display: inline-block;
+    }
+
+    .dropdown span { /* 明確指定下拉選單的文字部分 */
+        cursor: pointer; /* 確保下拉選單的文字也顯示手型圖案 */
     }
 
     .dropdown-content {
@@ -91,6 +96,7 @@
       text-decoration: none;
       display: block;
       transition: background 0.3s ease, color 0.3s ease, text-decoration 0.3s ease; /* 增加過渡效果 */
+      cursor: pointer; /* 確保下拉選單中的連結顯示手型圖案 (a 標籤默認有，但再次強調) */
     }
 
     .dropdown-content a:hover {
