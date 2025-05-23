@@ -1,0 +1,175 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>夢想家居調查表</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+  <style>
+body {
+  font-family: 'Noto Serif TC', 'Playfair Display', serif;
+  background: linear-gradient(to bottom, #fff8f0, #fbead3);
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+body::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: url('image/title.jpg') repeat;
+  opacity: 0.1;
+  z-index: 0;
+}
+.particles {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+.particles span {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: rgba(248, 2, 51, 0.8);
+  border-radius: 50%;
+  animation: float 10s linear infinite;
+}
+@keyframes float {
+  0% { transform: translateY(100vh) scale(1); opacity: 1; }
+  100% { transform: translateY(-10vh) scale(0.3); opacity: 0; }
+}
+h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-top: 2rem;
+  color: #a67c00;
+  text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.6);
+  z-index: 2;
+  position: relative;
+}
+.subtitle {
+  text-align: center;
+  color: #6f5b2d;
+  margin-bottom: 2rem;
+  z-index: 2;
+  position: relative;
+}
+form {
+  max-width: 800px;
+  margin: 2rem auto;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 2.5rem;
+  border-radius: 20px;
+  box-shadow: 0 0 25px rgba(255, 215, 0, 0.2), 0 0 60px rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+  position: relative;
+  z-index: 2;
+}
+label {
+  display: block;
+  margin: 1.5rem 0 0.5rem;
+  font-weight: bold;
+  color: #5c432c;
+}
+input, textarea, select {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #d8c6aa;
+  border-radius: 10px;
+  box-sizing: border-box;
+  font-size: 1rem;
+  background-color: #fffdf7;
+}
+textarea {
+  min-height: 100px;
+}
+button {
+  background: linear-gradient(to right, #e3c37f, #f8e8b9);
+  color: #5c432c;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 2rem;
+  width: 100%;
+  box-shadow: 0 4px 10px rgba(166, 124, 0, 0.4);
+  transition: background 0.3s ease-in-out;
+}
+button:hover {
+  background: linear-gradient(to right, #f1d99f, #fbeccf);
+}
+</style>
+</head>
+<body>
+
+<div class="particles">
+  <span style="left: 10%; animation-delay: 0s;"></span>
+  <span style="left: 30%; animation-delay: 2s;"></span>
+  <span style="left: 50%; animation-delay: 4s;"></span>
+  <span style="left: 70%; animation-delay: 1s;"></span>
+  <span style="left: 90%; animation-delay: 3s;"></span>
+</div>
+
+<h1>🏡 夢想家居調查表</h1>
+<p class="subtitle">請協助我們了解您的生活型態與空間期待，讓設計更貼近您的理想居所。</p>
+
+<!-- FORM CONTENT -->
+<!-- Will insert from previous full form HTML -->
+<form id="aiForm" action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSektSyiOrTxbO2jDjb5oGgTkfmWrSiYVfgnIG5xjZ84_CjcYw/formResponse" method="post">
+  <label for="name">1. 您的姓名（聯繫與報價用）</label>
+  <input type="text" id="name" name="entry.1536149092" required />
+
+  <label for="phone">2. 聯絡電話（設計師將與您聯繫討論需求）</label>
+  <input type="tel" id="phone" name="entry.53823608" required />
+
+  <label for="email">3. 電子郵件（用於設計初稿與報價回覆）</label>
+  <input type="email" id="email" name="entry.375760271" required />
+
+  <label for="address">4. 預計裝修地點與屋況（地址或社區名稱）</label>
+  <input type="text" id="address" name="entry.837307761" placeholder="例：台北市大安區仁愛路、OO社區" />
+
+  <label for="overview">5. 裝修空間與需求重點（請簡述希望改造的區域與內容）</label>
+  <textarea id="overview" name="entry.235445991" placeholder="例如：想更新廚房配置、改善浴室收納、整體風格統一等"></textarea>
+
+  <label for="type">6. 裝修類型（請選擇最符合的情況）</label>
+  <select id="type" name="entry.1130744288">
+    <option value="">請選擇</option>
+    <option value="新成屋">新成屋（毛胚或已裝修部分）</option>
+    <option value="舊屋翻新">舊屋翻新（屋齡10年以上）</option>
+    <option value="局部裝修">局部裝修（僅特定空間改造）</option>
+  </select>
+
+  <label for="size">7. 室內實際坪數／面積（方便估算格局與預算）</label>
+  <input type="text" id="size" name="entry.883923430" placeholder="例：30 坪／約 100 平方米（如有圖面可後續提供）" />
+
+  <label>8. 勾選您傾向的設計風格（可複選）</label>
+  <input type="text" id="style" name="entry.92210507" placeholder="例：北歐白木色、日系簡約、現代混搭、溫暖大地色系" />
+
+  <label for="budget">9. 可接受的裝修總預算範圍（含設計、施工、家具、設備）</label>
+  <input type="text" id="budget" name="entry.79793321" placeholder="例：80萬以內、100～120萬，請說明是否可彈性調整" />
+
+  <label for="goal">10. 您希望透過這次裝修解決的問題或目標？</label>
+  <textarea id="goal" name="entry.404464581" placeholder="例：希望空間更有整體感／收納不足／改善動線與採光／打造理想書房等"></textarea>
+
+  <label for="notes">11.您還有其他想告訴我們的嗎？</label>
+  <textarea id="notes" name="entry.1891922423" placeholder="或其他補充資訊（例如：需保留的家具、風水條件等）"></textarea>
+
+  <button type="submit">提交表單</button>
+</form>
+
+<script>
+document.getElementById('aiForm').addEventListener('submit', function () {
+  setTimeout(function () {
+    alert('✅ 表單已成功送出，我們將儘快與您聯繫！');
+  }, 100);
+});
+</script>
+</body>
+</html>
