@@ -21,7 +21,7 @@
       background-color: #fdf8e4; /* 溫暖的淺米色背景 */
       color: #333;
       scroll-behavior: smooth; /* 整個頁面平滑滾動 */
-         }
+    }
 
     body {
       margin: 0; /* 確保 body 沒有額外的 margin */
@@ -59,7 +59,6 @@
       text-decoration: none;
       position: relative;
       font-size: 16px;
-      /* cursor: pointer; */ /* 此行已由下方更具體的規則覆蓋，保持清晰度 */
       transition: color 0.3s ease;
     }
 
@@ -111,7 +110,6 @@
       display: flex;
     }
 
-
     main {
       padding: 60px 20px;
       text-align: center;
@@ -121,30 +119,72 @@
       animation: fadeIn 1.5s ease;
     }
 
+    /* CSS for the new image scroller (from previous turn) */
+    .image-scroller {
+        width: 100%; /* Make it responsive to its parent container */
+        max-width: 900px; /* Limit max width for better visual */
+        height: 220px; /* Adjust height for the smaller images */
+        overflow: hidden;
+        margin: 40px auto; /* Centered with top/bottom margin */
+        border: 1px solid #ccc;
+        position: relative;
+    }
+
+    .image-wrapper {
+        display: flex;
+        position: absolute;
+        left: 0;
+        animation: scrollImages 15s linear infinite; /* 15s for 3 images + clones */
+    }
+
+    .image-wrapper img {
+        width: 280px; /* Adjust image width for scroller */
+        height: 200px; /* Adjust height for scroller */
+        object-fit: cover;
+        margin-right: 20px; /* Add some spacing between images */
+        display: block;
+        flex-shrink: 0; /* Prevent shrinking */
+        border-radius: 8px; /* Slightly rounded corners */
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    @keyframes scrollImages {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            /* (Image width + margin-right) * original image count */
+            /* (280 + 20) * 3 = 300 * 3 = 900px */
+            transform: translateX(-900px);
+        }
+    }
+
+
     /* 調整主要圖片區塊為捲軸方式呈現 */
     .main-images {
-      display: flex; /* 改為 flex 佈局 */
-      overflow-x: auto; /* 允許水平滾動 */
-      white-space: nowrap; /* 防止內容換行 */
-      gap: 20px; /* 圖片間距 */
-      margin: 0 auto 40px auto;
-      max-width: 1100px; /* 調整容器最大寬度以容納更大圖片 */
-      padding-bottom: 10px; /* 為了滾動條預留空間 */
+      display: flex;
+      overflow-x: auto;
+      white-space: nowrap;
+      gap: 20px;
+      margin: 40px auto; /* 確保與上下內容有間距 */
+      max-width: 1100px;
+      padding-bottom: 10px;
+      justify-content: flex-start; /* Ensure images start from left */
     }
 
     .main-images img {
-      width: 600px; /* 圖片寬度大一倍 */
-      height: 500px; /* 圖片高度大一倍 */
+      width: 600px;
+      height: 500px;
       object-fit: cover;
       border: 8px solid white;
       border-radius: 10px;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4); /* 加強陰影 */
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
       transition: transform 0.3s ease;
-      flex-shrink: 0; /* 防止圖片縮小 */
+      flex-shrink: 0;
     }
 
     .main-images img:hover {
-      transform: scale(1.03); /* 更柔和的放大效果，避免圖片過大時跳動太劇烈 */
+      transform: scale(1.03);
     }
 
     /* 隱藏滾動條（可選，增加美觀） */
@@ -166,14 +206,13 @@
         background: #555;
     }
 
-
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
     section#about {
-      background: rgba(0, 0, 0, 0.6); /* 稍微深一點的半透明黑色 */
+      background: rgba(0, 0, 0, 0.6);
       padding: 40px 20px;
       text-align: center;
       animation: fadeIn 1.5s ease;
@@ -182,8 +221,8 @@
     }
 
     h1, h2 {
-      font-family: 'Playfair Display', serif; /* 標題藝術感字體 */
-      color: #6B4226; /* 帶有品牌感的點綴色，深咖啡色 */
+      font-family: 'Playfair Display', serif;
+      color: #6B4226;
       margin-bottom: 20px;
     }
 
@@ -196,7 +235,7 @@
     }
 
     section#about h2 {
-        color: #ffd700; /* 關於我區塊的標題顏色 */
+        color: #ffd700;
     }
 
     .footer-imgs {
@@ -211,24 +250,44 @@
       max-width: 300px;
       height: auto;
       border-radius: 10px;
-      box-shadow: 0 6px 12px rgba(0,0,0,0.3); /* 輕微加強陰影 */
+      box-shadow: 0 6px 12px rgba(0,0,0,0.3);
       animation: fadeIn 2s ease-in-out;
       transition: transform 0.3s ease;
     }
 
     .footer-imgs img:hover {
-      transform: scale(1.05); /* 更柔和的放大效果 */
+      transform: scale(1.05);
     }
 
     a {
-        color: #ffd700; /* 連結顏色 */
+        color: #ffd700;
         text-decoration: none;
         transition: color 0.3s ease;
     }
 
     a:hover {
-        color: #ffc000; /* 連結 hover 顏色 */
+        color: #ffc000;
         text-decoration: underline;
+    }
+
+    .responsive-video {
+      position: relative;
+      padding-bottom: 75%; /* 4:3 比例，改成 56.25% 就是 16:9 */
+      height: 0;
+      overflow: hidden;
+      max-width: 800px; /* Limit max width for videos */
+      margin: 40px auto; /* Centered with top/bottom margin */
+      background: #000;
+      border-radius: 10px; /* Rounded corners for video player */
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+
+    .responsive-video iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
     }
 
     @media (max-width: 768px) {
@@ -246,28 +305,69 @@
       }
       /* 在小螢幕上調整圖片區塊的顯示 */
       .main-images {
-        justify-content: flex-start; /* 圖片從左側開始排列 */
+        justify-content: flex-start;
       }
       .main-images img {
-        width: 90%; /* 小螢幕上圖片佔更多寬度，確保能看到大圖片的一部分 */
-        height: 300px; /* 小螢幕上圖片高度適應 */
+        width: 90%;
+        height: 300px;
+      }
+      /* Adjust image scroller for smaller screens */
+      .image-scroller {
+        height: 180px; /* Smaller height for scroller */
+        max-width: 100%;
+      }
+      .image-wrapper img {
+        width: 200px; /* Smaller width for scroller images */
+        height: 160px;
+        margin-right: 15px;
+      }
+      @keyframes scrollImages {
+          0% {
+              transform: translateX(0);
+          }
+          100% {
+              /* (Image width + margin-right) * original image count */
+              /* (200 + 15) * 3 = 215 * 3 = 645px */
+              transform: translateX(-645px);
+          }
+      }
+      .responsive-video {
+        padding-bottom: 60%; /* Adjust video aspect ratio for smaller screens */
       }
       h1 {
-        font-size: 1.8rem; /* 小螢幕字體調整 */
+        font-size: 1.8rem;
       }
       h2 {
-        font-size: 1.5rem; /* 小螢幕字體調整 */
+        font-size: 1.5rem;
       }
       main p {
-        font-size: 1rem; /* 小螢幕字體調整 */
+        font-size: 1rem;
       }
     }
 
     /* 針對超小螢幕進一步調整，確保圖片不會太大導致無法滾動 */
     @media (max-width: 480px) {
         .main-images img {
-            width: 95%; /* 更小螢幕上圖片寬度再加大，讓一張圖片盡可能填滿 */
+            width: 95%;
             height: 250px;
+        }
+        .image-scroller {
+          height: 150px;
+        }
+        .image-wrapper img {
+          width: 150px;
+          height: 130px;
+          margin-right: 10px;
+        }
+        @keyframes scrollImages {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                /* (Image width + margin-right) * original image count */
+                /* (150 + 10) * 3 = 160 * 3 = 480px */
+                transform: translateX(-480px);
+            }
         }
     }
   </style>
@@ -297,14 +397,17 @@
   </header>
 
   <main>
-    <div class="main-images">
-      <img src="image/ALBUM2505209.jpg" alt="作品1">
-      <img src="image/2505204.jpg" alt="作品2">
-      <img src="image/ALBUM2505205.jpg" alt="作品3">
-      <img src="image/ALBUM2505204.jpg" alt="作品4">
-      <img src="image/ALBUM2505207.jpg" alt="作品5">
-      <img src="image/2505204.jpg" alt="作品6">
+    <div class="image-scroller">
+        <div class="image-wrapper">
+            <img src="image/ALBUM2505209.jpg" alt="輪播圖1">
+            <img src="image/2505204.jpg" alt="輪播圖2">
+            <img src="image/ALBUM2505205.jpg" alt="輪播圖3">
+            <img src="image/ALBUM2505204.jpg" alt="輪播圖4">
+            <img src="image/ALBUM2505207.jpg" alt="輪播圖5">
+            <img src="image/2505204.jpg" alt="輪播圖6">
+        </div>
     </div>
+
     <h1 style="font-size: 2rem; margin-bottom: 20px; animation: fadeIn 2s ease-in;">🌿Beyond expectation， beyond space.</h1>
     <p style="font-size: 1.2rem; line-height: 2; animation: fadeIn 2.5s ease-in;">
       🏡 不是打造空間，而是創造讓你驚呼 WOW 的生活體驗<br>
@@ -312,45 +415,31 @@
       我們致力於打破常規，為你打造充滿驚喜與新意的專屬空間，<br>
       讓每一次回家，都是一場視覺與心靈的盛宴。
     </p>
-    <style>
-.responsive-video {
-  position: relative;
-  padding-bottom: 75%; /* 4:3 比例，改成 56.25% 就是 16:9 */
-  height: 0;
-  overflow: hidden;
-  max-width: 100%;
-  background: #000;
-}
 
-.responsive-video iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-</style>
-<div class="responsive-video">
-    <iframe src="https://www.youtube.com/embed/-i5uInQYWus?autoplay=1&mute=1&loop=1&playlist=-i5uInQYWus" frameborder="0" allowfullscreen></iframe>
-</div>
-    <div class="main-images">
-    <img src="image/page1-7.jpg" alt="作品7">
-    <img src="image/page1-8.jpg" alt="作品8">
-    <img src="image/title.jpg" alt="臉書粉絲圖片">
+    <div class="responsive-video">
+        <iframe src="https://www.youtube.com/embed/-i5uInQYWus?autoplay=1&mute=1&loop=1&playlist=-i5uInQYWus" frameborder="0" allowfullscreen></iframe>
     </div>
+
+<div class="image-scroller">
+        <div class="image-wrapper">
+            <img src="image/page1-7.jpg" alt="輪播圖1">
+            <img src="image/page1-8.jpg" alt="輪播圖2">
+            <img src="image/page1-9.jpg" alt="輪播圖3">
+            <img src="image/page1-10.jpg" alt="輪播圖4">
+            <img src="image/title.jpg" alt="輪播圖5">
+           
+        </div>
+    </div>
+
     <h1 style="font-size: 2rem; margin-bottom: 20px; animation: fadeIn 2s ease-in;">🌿Beyond expectation， beyond space.</h1>
     <p style="font-size: 1.2rem; line-height: 2; animation: fadeIn 2.5s ease-in;">
       🏡 "WOW：看見設計，驚嘆生活。"<br>
       "設計 WOW 你的視界。"<br>
       "WOW Design: 空間，為驚喜而生。"<br>
     </p>
-    <div class="main-images"></div>
-    <div class="main-images">
-    <img src="image/page1-9.jpg" alt="作品9">
-    <img src="image/page1-10.jpg" alt="作品10">
-    </div>
-    <div class="responsive-video">
-    <iframe src="https://www.youtube.com/embed/w-m1TpkCAw8?autoplay=1&mute=1&loop=1&playlist=w-m1TpkCAw8" frameborder="0" width="640" height="480"></iframe>
+
+        <div class="responsive-video">
+        <iframe src="https://www.youtube.com/embed/w-m1TpkCAw8?autoplay=1&mute=1&loop=1&playlist=w-m1TpkCAw8" frameborder="0" width="640" height="480"></iframe>
     </div>
   </main>
 
