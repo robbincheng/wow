@@ -312,6 +312,27 @@
       我們致力於打破常規，為你打造充滿驚喜與新意的專屬空間，<br>
       讓每一次回家，都是一場視覺與心靈的盛宴。
     </p>
+    <style>
+.responsive-video {
+  position: relative;
+  padding-bottom: 75%; /* 4:3 比例，改成 56.25% 就是 16:9 */
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+  background: #000;
+}
+
+.responsive-video iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+</style>
+<div class="responsive-video">
+    <iframe src="https://www.youtube.com/embed/w-m1TpkCAw8?autoplay=1&mute=1&loop=1&playlist=w-m1TpkCAw8" frameborder="0" allowfullscreen></iframe>
+</div>
     <div class="main-images">
     <img src="image/page1-7.jpg" alt="作品7">
     <img src="image/page1-8.jpg" alt="作品8">
