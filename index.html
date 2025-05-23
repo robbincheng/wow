@@ -352,12 +352,23 @@
             height: 250px;
         }
         .image-scroller {
-          height: 150px;
+        width: 100%; /* 保持響應式寬度 */
+        max-width: 1800px; /* 將最大寬度加倍 */
+        height: 440px; /* 將高度加倍 */
+        overflow: hidden;
+        margin: 40px auto; /* 保持置中和邊距 */
+        border: 1px solid #ccc;
+        position: relative;
         }
         .image-wrapper img {
-          width: 150px;
-          height: 130px;
-          margin-right: 10px;
+        width: 560px; /* 將寬度加倍 */
+        height: 400px; /* 將高度加倍 */
+        object-fit: cover;
+        margin-right: 40px; /* 將間距加倍 */
+        display: block;
+        flex-shrink: 0;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
         }
         @keyframes scrollImages {
             0% {
