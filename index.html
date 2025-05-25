@@ -19,6 +19,7 @@
       background-color: transparent; /* 背景顏色 */
       color: #333;
       scroll-behavior: smooth; /* 整個頁面平滑滾動 */
+      --scroll-play-state: running;
     }
 
     body {
@@ -163,6 +164,7 @@
         position: absolute;
         left: 0;
         animation: scrollImages 15s linear infinite; /* 15s for 3 images + clones */
+        animation-play-state: var(--scroll-play-state);
     }
 
     .image-wrapper img {
@@ -493,5 +495,52 @@
       <img src="image/namecard2.jpg" alt="名片2">
     </div>
   </section>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // 獲取第一個輪播圖片容器
+      const firstImageScroller = document.querySelector('.image-scroller');
+
+      if (firstImageScroller) {
+        // 獲取輪播圖片的實際內容容器 (有動畫的那個)
+        const firstImageWrapper = firstImageScroller.querySelector('.image-wrapper');
+
+        // 監聽 mousedown 事件 (滑鼠按下)
+        firstImageScroller.addEventListener('mousedown', function(event) {
+          // 檢查被點擊的元素是否是圖片且有 zoomable 類別
+          if (event.target.tagName === 'IMG' && event.target.classList.contains('zoomable')) {
+            if (firstImageWrapper) {
+              // 點擊放大時，將動畫狀態設定為 'paused'
+              firstImageWrapper.style.animationPlayState = 'paused';
+              // 為了防止滑鼠拖曳到圖片外釋放按鈕導致動畫停住，我們同時監聽 mouseleave
+              // 如果在按住滑鼠時滑鼠離開圖片，也會恢復動畫
+              event.target.addEventListener('mouseleave', mouseLeaveHandler);
+            }
+          }
+        });
+
+        // 監聽 mouseup 事件 (滑鼠放開)
+        firstImageScroller.addEventListener('mouseup', function(event) {
+          // 檢查被點擊的元素是否是圖片且有 zoomable 類別
+          if (event.target.tagName === 'IMG' && event.target.classList.contains('zoomable')) {
+            if (firstImageWrapper) {
+              // 滑鼠放開時，將動畫狀態設定為 'running'
+              firstImageWrapper.style.animationPlayState = 'running';
+              // 移除 mouseleave 監聽器，避免重複執行
+              event.target.removeEventListener('mouseleave', mouseLeaveHandler);
+            }
+          }
+        });
+
+        // 處理 mouseleave 的函數，用於在滑鼠按住但離開圖片時恢復動畫
+        function mouseLeaveHandler(event) {
+            if (firstImageWrapper) {
+                firstImageWrapper.style.animationPlayState = 'running';
+                event.target.removeEventListener('mouseleave', mouseLeaveHandler); // 確保只執行一次
+            }
+        }
+      }
+    });
+  </script>
 </body>
 </html>
