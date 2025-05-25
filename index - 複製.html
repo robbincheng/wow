@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>WOW 室內設計</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
   <style>
     * {
@@ -93,7 +95,8 @@
       text-decoration: none;
       display: block;
       transition: background 0.3s ease, color 0.3s ease, text-decoration 0.3s ease; /* 增加過渡效果 */
-     }
+      cursor: pointer; /* 確保下拉選單中的連結顯示手型圖案 (a 標籤默認有，但再次強調) */
+    }
 
     .dropdown-content a:hover {
       background-color: rgba(255, 255, 255, 0.15); /* 顏色變亮 */
@@ -105,15 +108,6 @@
     .dropdown:hover .dropdown-content,
     .dropdown:focus-within .dropdown-content {
       display: flex;
-    }
-    img.zoomable {
-      transition: transform 0.3s ease;
-      cursor: zoom-in;
-    }
-
-    img.zoomable:active {
-      transform: scale(1.2); /* 點擊時放大 */
-      cursor: zoom-out;
     }
 
     main {
@@ -416,12 +410,12 @@
   <main>
     <div class="image-scroller">
         <div class="image-wrapper">
-            <img src="image/ALBUM2505209.jpg" alt="輪播圖1" class="zoomable">
-            <img src="image/2505204.jpg" alt="輪播圖2" class="zoomable">
-            <img src="image/ALBUM2505205.jpg" alt="輪播圖3" class="zoomable">
-            <img src="image/ALBUM2505204.jpg" alt="輪播圖4" class="zoomable">
-            <img src="image/ALBUM2505207.jpg" alt="輪播圖5" class="zoomable">
-            <img src="image/2505204.jpg" alt="輪播圖6" >
+            <img src="image/ALBUM2505209.jpg" alt="輪播圖1">
+            <img src="image/2505204.jpg" alt="輪播圖2">
+            <img src="image/ALBUM2505205.jpg" alt="輪播圖3">
+            <img src="image/ALBUM2505204.jpg" alt="輪播圖4">
+            <img src="image/ALBUM2505207.jpg" alt="輪播圖5">
+            <img src="image/2505204.jpg" alt="輪播圖6">
         </div>
     </div>
 
