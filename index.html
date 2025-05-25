@@ -34,7 +34,7 @@
       width: 100%;
       height: 100%;
       z-index: -1; /* 確保在所有內容之後 */
-      background: radial-gradient(circle at 10% 20%, #fff8e8, #f5e4d2, #ead0b8); /* 輕微的顏色漸變 */
+      background: radial-gradient(circle at 10% 20%, #fff8e8, #f5e4d2, #e0720b); /* 輕微的顏色漸變 */
       background-size: 400% 400%; /* 大於視窗以允許移動 */
       animation: backgroundPan 10s linear infinite; /* 緩慢且連續的移動動畫 */
     }
@@ -604,7 +604,7 @@
 
         // 繪製粒子
         draw() {
-          ctx.fillStyle = `rgba(255,255,255, ${this.opacity * (this.life / this.initialLife)})`; // 色定粒子顏色，透明度隨壽命衰減
+          ctx.fillStyle = `rgba(255,0,0, ${this.opacity * (this.life / this.initialLife)})`; // 色定粒子顏色，透明度隨壽命衰減
           ctx.beginPath();
           ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
           ctx.fill();
