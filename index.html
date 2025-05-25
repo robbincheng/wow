@@ -38,7 +38,17 @@
       background-size: 400% 400%; /* 大於視窗以允許移動 */
       animation: backgroundPan 10s linear infinite; /* 緩慢且連續的移動動畫 */
     }
-
+    /* 新增 Canvas 樣式，使其覆蓋整個視窗並在 animated-background-layer 之上，但內容之下 */
+    #particlesCanvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1; /* 在 animated-background-layer 之上，但內容之下 */
+      display: block; /* 確保沒有額外邊距 */
+      background-color: transparent; /* 讓底層的漸變背景透出來 */
+    }
     @keyframes backgroundPan {
       0% { background-position: 0% 0%; }
       25% { background-position: 100% 0%; }
@@ -415,6 +425,7 @@
 </head>
 <body>
   <div class="animated-background-layer"></div>
+   <canvas id="particlesCanvas"></canvas>
   <header>
     <img src="image/wowlogo.jpg" alt="WOW logo" class="logo">
     <nav>
@@ -540,6 +551,119 @@
             }
         }
       }
+    });
+    // ============== 粒子背景效果的 JavaScript ==============
+    document.addEventListener('DOMContentLoaded', function() {
+      const canvas = document.getElementById('particlesCanvas');
+      const ctx = canvas.getContext('2d');
+      let particles = [];
+      const numberOfParticles = 80; // 粒子數量，可調整
+      const maxDistance = 150; // 粒子間連線的最大距離，可調整
+
+      // 設置 Canvas 尺寸以適應視窗
+      function resizeCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      }
+
+      // 粒子類別
+      class Particle {
+        constructor(x, y) {
+          this.x = x || Math.random() * canvas.width;
+          this.y = y || Math.random() * canvas.height;
+          this.size = Math.random() * 3 + 1; // 粒子大小
+          this.speedX = Math.random() * 0.8 - 0.4; // 粒子水平移動速度 (可正可負，很慢)
+          this.speedY = Math.random() * 0.8 - 0.4; // 粒子垂直移動速度 (可正可負，很慢)
+          this.opacity = Math.random() * 0.8 + 0.2; // 粒子初始透明度
+          this.life = Math.random() * 100 + 50; // 粒子壽命
+          this.initialLife = this.life; // 儲存初始壽命
+        }
+
+        // 更新粒子位置和壽命
+        update() {
+          this.x += this.speedX;
+          this.y += this.speedY;
+          this.life--;
+
+          // 當粒子壽命結束時，重新初始化
+          if (this.life <= 0) {
+            this.x = Math.random() * canvas.width;
+            this.y = Math.random() * canvas.height;
+            this.size = Math.random() * 3 + 1;
+            this.speedX = Math.random() * 0.8 - 0.4;
+            this.speedY = Math.random() * 0.8 - 0.4;
+            this.opacity = Math.random() * 0.8 + 0.2;
+            this.life = Math.random() * 100 + 50;
+            this.initialLife = this.life;
+          }
+
+          // 讓粒子在邊界 "循環" 出現，而不是消失
+          if (this.x < 0 - this.size) this.x = canvas.width + this.size;
+          if (this.x > canvas.width + this.size) this.x = 0 - this.size;
+          if (this.y < 0 - this.size) this.y = canvas.height + this.size;
+          if (this.y > canvas.height + this.size) this.y = 0 - this.size;
+        }
+
+        // 繪製粒子
+        draw() {
+          ctx.fillStyle = `rgba(64,64,64, ${this.opacity * (this.life / this.initialLife)})`; // 白色粒子，透明度隨壽命衰減
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+          ctx.fill();
+        }
+      }
+
+      // 初始化粒子
+      function initParticles() {
+        particles = []; // 清空現有粒子
+        for (let i = 0; i < numberOfParticles; i++) {
+          particles.push(new Particle());
+        }
+      }
+
+      // 繪製粒子之間的連線
+      function connectParticles() {
+        for (let a = 0; a < particles.length; a++) {
+          for (let b = a; b < particles.length; b++) {
+            const distance = Math.sqrt(
+              ((particles[a].x - particles[b].x) * (particles[a].x - particles[b].x)) +
+              ((particles[a].y - particles[b].y) * (particles[a].y - particles[b].y))
+            );
+
+            if (distance < maxDistance) {
+              ctx.strokeStyle = `rgba(255, 255, 255, ${1 - (distance / maxDistance)})`; // 線條透明度隨距離衰減
+              ctx.lineWidth = 0.5; // 線條粗細
+              ctx.beginPath();
+              ctx.moveTo(particles[a].x, particles[a].y);
+              ctx.lineTo(particles[b].x, particles[b].y);
+              ctx.stroke();
+            }
+          }
+        }
+      }
+
+      // 動畫循環
+      function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height); // 清空 Canvas 內容
+        connectParticles(); // 先繪製連線
+
+        for (let i = 0; i < particles.length; i++) {
+          particles[i].update();
+          particles[i].draw();
+        }
+        requestAnimationFrame(animate); // 請求下一幀動畫
+      }
+
+      // 事件監聽
+      window.addEventListener('resize', () => {
+        resizeCanvas();
+        initParticles(); // 重新初始化粒子以適應新尺寸
+      });
+
+      // 頁面載入時初始化
+      resizeCanvas();
+      initParticles();
+      animate(); // 開始動畫
     });
   </script>
 </body>
