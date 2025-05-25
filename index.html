@@ -16,13 +16,34 @@
       width: 100%;
       height: 100%;
       font-family: 'Noto Sans TC', sans-serif; /* 內文簡潔易讀的無襯線字體 */
-      background-color: #fdf8e4; /* 背景顏色 */
+      background-color: transparent; /* 背景顏色 */
       color: #333;
       scroll-behavior: smooth; /* 整個頁面平滑滾動 */
     }
 
     body {
       margin: 0; /* 確保 body 沒有額外的 margin */
+    }
+
+    /* 新增頁面背景互動效果 */
+    .animated-background-layer {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1; /* 確保在所有內容之後 */
+      background: radial-gradient(circle at 10% 20%, #fff8e8, #f5e4d2, #ead0b8); /* 輕微的顏色漸變 */
+      background-size: 400% 400%; /* 大於視窗以允許移動 */
+      animation: backgroundPan 10s linear infinite; /* 緩慢且連續的移動動畫 */
+    }
+
+    @keyframes backgroundPan {
+      0% { background-position: 0% 0%; }
+      25% { background-position: 100% 0%; }
+      50% { background-position: 100% 100%; }
+      75% { background-position: 0% 100%; }
+      100% { background-position: 0% 0%; }
     }
 
     header {
@@ -93,7 +114,8 @@
       text-decoration: none;
       display: block;
       transition: background 0.3s ease, color 0.3s ease, text-decoration 0.3s ease; /* 增加過渡效果 */
-     }
+      /* 移除冗餘的 cursor: pointer; 因為 <a> 標籤預設就有 */
+    }
 
     .dropdown-content a:hover {
       background-color: rgba(255, 255, 255, 0.15); /* 顏色變亮 */
@@ -390,6 +412,7 @@
   </style>
 </head>
 <body>
+  <div class="animated-background-layer"></div>
   <header>
     <img src="image/wowlogo.jpg" alt="WOW logo" class="logo">
     <nav>
@@ -444,7 +467,7 @@
             <img src="image/page1-9.jpg" alt="輪播圖3">
             <img src="image/page1-10.jpg" alt="輪播圖4">
             <img src="image/title.jpg" alt="輪播圖5">
-           
+
         </div>
     </div>
 
